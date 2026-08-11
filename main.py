@@ -2,10 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fft import fft, ifft, fftfreq
 
-# 1. SDOF 시스템 및 하중 조건 설정
-m = 1.0       # Mass (kg)
-k = 100.0     # Stiffness (N/m)
-c = 0.5       # Damping coefficient (N·s/m)
+# 1. SDOF 시스템 및 하중 조건 설정 (고유주기 1초 기준)
+m = 1.0                         # Mass (kg)
+k = 4 * (3.1415926535) ** 2     # Stiffness (N/m) ≈ 39.478 (고유주기 1초 맞춤)
+damping_ratio = 0.05            # 감쇠비 5% 표준 적용
+c = 2 * damping_ratio * (m * k) ** 0.5  # 감쇠계수 계산 (c = 2 * zeta * sqrt(m*k))
 
 # 시간 설정
 dt = 0.01     # Time step (sec)
