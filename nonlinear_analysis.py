@@ -131,4 +131,5 @@ plt.legend()
 plt.grid(alpha=0.2)
 
 plt.tight_layout()
+plt.savefig("nonlinear_analysis_result.png", dpi=300, bbox_inches="tight")
 plt.show()
